@@ -1,0 +1,75 @@
+---
+title: "TUGAS ALPRO PERTEMUAN KE-4"
+author: "AULIA ALIFAH_3338260012"
+date: "2026-09-24"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+```{r}
+# Soal 1
+find_median <- function(x) {
+  # 1. Urutkan vektor dari terkecil ke terbesar
+  x_sorted <- sort(x)
+  n <- length(x_sorted)
+  
+  # 2. Cek apakah jumlah elemen ganjil atau genap
+  if (n %% 2 != 0) {
+    #Jika ganjil, ambil nilai tepat di tengah
+    median_val <- x_sorted[(n + 1) / 2]
+  } else {
+    #jika genap, ambil rata-rata dari dua nilai tengah
+    median_val <- (x_sorted[n / 2] + x_sorted[(n / 2)]) / 2
+  }
+    
+  return(median_val)
+}
+
+# contoh penggunaan sesuai perintah soal di gambar:
+x <- c(3, 7, 2, 9, 5)
+find_median(x)
+
+
+```
+```{r}
+#Soal 2
+mean_extend <- function(x) {
+  #Lakukan pengulangan selama panjang vektor kurang dari 10
+  while(length(x) < 10) {
+    nilai_mean <- mean(x)    # 1. Hitung mean
+    x <- c(x, nilai_mean)    # 2. Tambahkan nilai mean ke dalam vektor
+  }
+  return(x)                  # 3. Kembalikan vektor yang sudah panjangnya 10
+}
+
+# Contoh penggunaan sesuai perintah di gambar:
+x <- c(3, 4, 5, 6)
+mean_extend(x)
+```
+```{r}
+#Soal 3
+hitung_genap <- function(vektor_angka) {
+  # Mencari mana saja angka genap, lalu hitung totalnya
+  hasil <- sum(vektor_angka %% 2 == 0)
+  return(hasil)
+}
+
+#Tes Fungsi
+x <- c(3, 4, 7, 10, 12, 15)
+hitung_genap(x)
+```
+```{r}
+#Tugas 4
+hitung_genap_matriks <- function(matrix_input) {
+  # Menggunakan logika sum dan modulus untuk menghitung total angka genap di matriks
+  total_genap <- sum(matrix_input %% 2 == 0)
+  return(total_genap)
+}
+
+#Tes fungsi
+m <- matrix(1:12, nrow = 3, ncol = 4)
+hitung_genap_matriks(m)
+```
+
